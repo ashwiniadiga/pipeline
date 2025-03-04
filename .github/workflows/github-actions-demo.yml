@@ -25,7 +25,7 @@ jobs:
       - name: List files in the repo
         run: |
           ls -lrt
-      - run: cat test.txt
+      - run: cat test.text
       - run: echo "🍏 This job's status is ${{ job.status }}."
   job1:
     name: Job 1
