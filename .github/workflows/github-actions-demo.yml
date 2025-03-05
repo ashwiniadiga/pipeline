@@ -71,4 +71,18 @@ jobs:
           OUTPUT1: ${{needs.output1.outputs.output1}}
           OUTPUT2: ${{needs.output1.outputs.output2}}
         run: echo "$OUTPUT1 $OUTPUT2"
+  set:
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: ${{steps.list_dirs.outputs.matrix}}
+    steps:
+      - uses: actions/checkout@v2
+      - id: list_dirs
+        run: echo "::set-output name=matrix::$(ls|jq -cnR '[inputs | select(length>0)]')"
+  get:
+    runs-on: ubuntu-20.04
+    needs: set
+    strategy:
+      matrix:
+        subdir: ${{fromJson(needs.set.outputs.matrix)}}
 
