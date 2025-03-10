@@ -92,6 +92,6 @@ jobs:
     uses: ashwiniadiga/pipeline2/.github/workflows/reusable-workflow.yml@main
     # Passing 'node-version' as an input parameter to the reusable workflow
     with:
-      airflow-version: '18.x'
+      airflow-version: 'v2.7.3'
 
 
