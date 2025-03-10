@@ -87,4 +87,11 @@ jobs:
         subdir: ${{fromJson(needs.set.outputs.matrix)}}
     steps:
       - run: echo ${{ matrix.subdir }}
+  my-job:
+    # Importing a reusable workflow from another repository and branch
+    uses: ashwiniadiga/pipeline2/.github/workflows/build-test-deploy.yml@main
+    # Passing 'node-version' as an input parameter to the reusable workflow
+    with:
+      node-version: '18.x'
+
 
