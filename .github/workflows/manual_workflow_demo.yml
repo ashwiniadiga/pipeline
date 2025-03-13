@@ -21,7 +21,7 @@ on:
           type: environment
           required: true
         app_type:
-          description: 'Log level'
+          description: 'cloud/inhouse'
           required: true
           type: string
 
